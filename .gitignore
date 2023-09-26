@@ -62,6 +62,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+yarn.lock
 
 dist/
 server/
@@ -71,3 +72,6 @@ deno.lock
 
 # db files
 .config.json
+
+#tailwind
+tailwind.config.js

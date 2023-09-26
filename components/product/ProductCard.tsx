@@ -38,6 +38,7 @@ export interface Layout {
 }
 
 interface Props {
+  shopUrl: string;
   product: Product;
   /** Preload card image */
   preload?: boolean;
@@ -51,11 +52,12 @@ interface Props {
 
 const relative = (url: string) => {
   const link = new URL(url);
+  
   return `${link.pathname}${link.search}`;
 };
 
-const WIDTH = 200;
-const HEIGHT = 279;
+const WIDTH = 282;
+const HEIGHT = 363;
 
 function ProductCard(
   { product, preload, itemListName, layout, platform }: Props,
@@ -68,6 +70,8 @@ function ProductCard(
     offers,
     isVariantOf,
   } = product;
+ 
+  
   const description = product.description || isVariantOf?.description;
   const id = `product-card-${productID}`;
   const productGroupID = isVariantOf?.productGroupID;
@@ -83,7 +87,7 @@ function ProductCard(
       : "center";
   const skuSelector = variants.map(([value, [link]]) => (
     <li>
-      <a href={link}>
+      <a href={link && relative(link)}>
         <Avatar
           variant={link === url ? "active" : "default"}
           content={value}
@@ -134,28 +138,6 @@ function ProductCard(
         class="relative overflow-hidden"
         style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}
       >
-        {/* Wishlist button */}
-        <div
-          class={`absolute top-2 z-10
-          ${
-            l?.elementsPositions?.favoriteIcon === "Top left"
-              ? "left-2"
-              : "right-2"
-          }
-          ${
-            l?.onMouseOver?.showFavoriteIcon
-              ? "lg:hidden lg:group-hover:block"
-              : "lg:hidden"
-          }
-        `}
-        >
-          {platform === "vtex" && (
-            <WishlistButton
-              productGroupID={productGroupID}
-              productID={productID}
-            />
-          )}
-        </div>
         {/* Product Images */}
         <a
           href={url && relative(url)}
@@ -232,14 +214,8 @@ function ProductCard(
             <div class="flex flex-col gap-0">
               {l?.hide?.productName ? "" : (
                 <h2
-                  class="truncate text-base lg:text-lg text-base-content"
+                  class=" text-base lg:text-xl text-black"
                   dangerouslySetInnerHTML={{ __html: name ?? "" }}
-                />
-              )}
-              {l?.hide?.productDescription ? "" : (
-                <div
-                  class="truncate text-sm lg:text-sm text-neutral"
-                  dangerouslySetInnerHTML={{ __html: description ?? "" }}
                 />
               )}
             </div>
@@ -254,13 +230,13 @@ function ProductCard(
               } ${align === "center" ? "justify-center" : "justify-start"}`}
             >
               <div
-                class={`line-through text-base-300 text-xs ${
+                class={`line-through text-base-300 ${
                   l?.basics?.oldPriceSize === "Normal" ? "lg:text-xl" : ""
                 }`}
               >
                 {formatPrice(listPrice, offers?.priceCurrency)}
               </div>
-              <div class="text-accent text-base lg:text-xl">
+              <div class="text-black text-base lg:text-2xl font-bold">
                 {formatPrice(price, offers?.priceCurrency)}
               </div>
             </div>
@@ -268,7 +244,7 @@ function ProductCard(
               ? ""
               : (
                 <div class="text-base-300 text-sm lg:text-base">
-                  ou {installments}
+                  {installments}
                 </div>
               )}
           </div>

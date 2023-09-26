@@ -86,7 +86,7 @@ const RADIUS_DESKTOP = {
 };
 
 const DEFAULT_PROPS: Props = {
-  title: "Summer bags",
+  title: "",
   banners: [
     {
       alt: "a",
@@ -121,7 +121,7 @@ export default function BannnerGrid(props: Props) {
   } = {...DEFAULT_PROPS, ...props}
 
   return (
-    <section class="container w-full px-4 md:px-0 mx-auto">
+    <section class="container w-full max-w-[1200px] px-4 md:px-0 mx-auto mt-16">
       {title &&
         (
           <div class="py-6 md:py-0 md:pb-[40px] flex items-center mt-6">
@@ -133,14 +133,12 @@ export default function BannnerGrid(props: Props) {
           </div>
         )}
       <div
-        class={`grid gap-4 md:gap-6 ${
-          MOBILE_COLUMNS[itemsPerLine?.mobile ?? 2]
-        } ${DESKTOP_COLUMNS[itemsPerLine?.desktop ?? 4]}`}
+        class={`w-full lg:grid  lg:grid-cols-2 lg:gap-6 flex flex-wrap gap-3`}
       >
         {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
           <a
             href={href}
-            class={`overflow-hidden ${
+            class={`col-span-1 w-full  ${
               RADIUS_MOBILE[borderRadius.mobile ?? "none"]
             } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]} `}
           >
@@ -148,14 +146,14 @@ export default function BannnerGrid(props: Props) {
               <Source
                 media="(max-width: 767px)"
                 src={srcMobile}
-                width={100}
-                height={100}
+                width={375}
+                height={240}
               />
               <Source
                 media="(min-width: 768px)"
                 src={srcDesktop ? srcDesktop : srcMobile}
-                width={250}
-                height={250}
+                width={650}
+                height={221}
               />
               <img
                 class="w-full"

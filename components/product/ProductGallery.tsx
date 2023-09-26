@@ -11,17 +11,18 @@ export interface Columns {
 }
 
 export interface Props {
+  shopUrl: string;
   products: Product[] | null;
   layout?: cardLayout;
 }
 
-function ProductGallery({ products, layout }: Props) {
+function ProductGallery({ products, layout,shopUrl }: Props) {
   const platform = usePlatform();
-
   return (
-    <div class="grid grid-cols-2 gap-2 items-center sm:grid-cols-4 sm:gap-10">
+    <div class=" container lg:max-w-[1200px] max-w-[95%] grid grid-cols-2 gap-2 items-center sm:grid-cols-4 sm:gap-10">
       {products?.map((product, index) => (
         <ProductCard
+          shopUrl = {shopUrl}
           product={product}
           preload={index === 0}
           layout={layout}

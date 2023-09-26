@@ -3,6 +3,9 @@ import ColorClasses from "$store/components/footer/ColorClasses.tsx";
 import Divider from "$store/components/footer/Divider.tsx";
 import ExtraLinks from "$store/components/footer/ExtraLinks.tsx";
 import FooterItems from "$store/components/footer/FooterItems.tsx";
+import FooterItemInfo, {
+  SectionInfo,
+} from "$store/components/footer/FooterItemInfo.tsx";
 import Logo from "$store/components/footer/Logo.tsx";
 import MobileApps from "$store/components/footer/MobileApps.tsx";
 import PaymentMethods from "$store/components/footer/PaymentMethods.tsx";
@@ -38,6 +41,7 @@ export interface PaymentItem {
 }
 
 export interface MobileApps {
+  title?: string;
   /** @description Link to the app */
   apple?: string;
   /** @description Link to the app */
@@ -73,6 +77,7 @@ export interface Layout {
     logo?: boolean;
     newsletter?: boolean;
     sectionLinks?: boolean;
+    sectionInfo?: boolean;
     socialLinks?: boolean;
     paymentMethods?: boolean;
     mobileApps?: boolean;
@@ -94,6 +99,7 @@ export interface Props {
     form?: NewsletterForm;
   };
   sections?: Section[];
+  sectionsInfo?: SectionInfo[];
   social?: {
     title?: string;
     items: SocialItem[];
@@ -151,6 +157,23 @@ function Footer({
       },
     ],
   }],
+  sectionsInfo = [{
+    "label": "Sobre",
+    "items": [
+      {
+        "href": "/quem-somos",
+        "label": "Quem somos",
+      },
+      {
+        "href": "/termos-de-uso",
+        "label": "Termos de uso",
+      },
+      {
+        "href": "/trabalhe-conosco",
+        "label": "Trabalhe conosco",
+      },
+    ],
+  }],
   social = {
     title: "Redes sociais",
     items: [{ label: "Instagram", link: "/" }, { label: "Tiktok", link: "/" }],
@@ -159,7 +182,7 @@ function Footer({
     title: "Formas de pagamento",
     items: [{ label: "Mastercard" }, { label: "Visa" }, { label: "Pix" }],
   },
-  mobileApps = { apple: "/", android: "/" },
+  mobileApps = { title: "Nossos Apps", apple: "/", android: "/" },
   regionOptions = { currency: [], language: [] },
   extraLinks = [],
   backToTheTop,
@@ -189,11 +212,18 @@ function Footer({
       }}
     />
   );
-  const _sectionLinks = layout?.hide?.sectionLinks ? <></> : (
+  const _sectionLinks = layout?.hide?.sectionInfo ? <></> : (
     <FooterItems
       sections={sections}
       justify={layout?.variation == "Variation 2" ||
         layout?.variation == "Variation 3"}
+    />
+  );
+  const _sectionInfoFooter = layout?.hide?.sectionInfo ? <></> : (
+    <FooterItemInfo
+      sectionsInfo={sectionsInfo}
+      justify={layout?.variation == "Variation 1" ||
+        layout?.variation == "Variation 2"}
     />
   );
   const _social = layout?.hide?.socialLinks
@@ -213,32 +243,23 @@ function Footer({
     : <ExtraLinks content={extraLinks} />;
 
   return (
-    <footer
-      class={`w-full flex flex-col pt-10 pb-2 md:pb-10 gap-10 ${
-        ColorClasses(layout)
-      }`}
-    >
-      <div class="lg:container mx-6 lg:mx-auto">
+    <footer class="w-full flex flex-col pt-10 pb-2 md:pb-10 gap-10 bg-[#F5F5F5]">
+      <div class="lg:container lg:mx-auto md:px-10">
         {(!layout?.variation || layout?.variation == "Variation 1") && (
-          <div class="flex flex-col gap-10">
-            <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">
+          <div class="flex flex-col">
+            <div>
               {_logo}
-              {_sectionLinks}
-              {_newsletter}
             </div>
-            <Divider />
-            <div class="flex flex-col md:flex-row gap-10 md:gap-14 md:items-end">
-              {_payments}
-              {_social}
-              <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
-                {_apps}
-                {_region}
+            <div class="flex flex-col md:flex-row md:justify-between lg:grid lg:grid-cols-5">
+              <div class="md:hidden">{_sectionInfoFooter} {_social}</div>
+              <div class="col-span-3">{_sectionLinks}</div>
+              <div class="hidden md:flex md:col-span-1">
+                {_sectionInfoFooter}
               </div>
+              <div class="md:col-span-1 md:mx-auto">{_apps}</div>
             </div>
-            <Divider />
-            <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
-              <PoweredByDeco />
-              {_links}
+            <div class="flex flex-col">
+              {_payments}
             </div>
           </div>
         )}
@@ -342,9 +363,11 @@ function Footer({
           </div>
         )}
       </div>
-      {layout?.hide?.backToTheTop
+      {
+        /* {layout?.hide?.backToTheTop
         ? <></>
-        : <BackToTop content={backToTheTop?.text} />}
+        : <BackToTop content={backToTheTop?.text} />} */
+      }
     </footer>
   );
 }

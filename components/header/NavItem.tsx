@@ -12,9 +12,9 @@ function NavItem({ item }: { item: INavItem }) {
   const { href, label, children, image } = item;
 
   return (
-    <li class="group flex items-center">
+    <li class="group flex items-center p-2">
       <a href={href} class="px-4 py-3">
-        <span class="group-hover:underline">
+        <span class="group-hover:underline hover:underline uppercase text-[#8C8C8C] font-medium text-sm font-[Overpass]">
           {label}
         </span>
       </a>
@@ -45,7 +45,10 @@ function NavItem({ item }: { item: INavItem }) {
                   <ul class="flex flex-col gap-1 mt-4">
                     {node.children?.map((leaf) => (
                       <li>
-                        <a class="hover:underline" href={leaf.href}>
+                        <a
+                          class="hover:underline uppercase text-[#8C8C8C] font-medium text-sm font-[Overpass] "
+                          href={leaf.href}
+                        >
                           <span class="text-xs">{leaf.label}</span>
                         </a>
                       </li>

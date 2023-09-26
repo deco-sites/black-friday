@@ -47,7 +47,7 @@ export interface Props {
 }
 
 function Searchbar({
-  placeholder = "What are you looking for?",
+  placeholder = "Digite aqui sua  busca",
   action = "/s",
   name = "q",
   query,
@@ -70,26 +70,28 @@ function Searchbar({
   }, []);
 
   return (
-    <div
-      class="w-screen grid gap-8 container px-4 py-6 overflow-y-hidden"
-      style={{ gridTemplateRows: "min-content auto" }}
+    <div class="gap-8 container w-[245px]" // style={{ gridTemplateRows: "min-content auto" }}
     >
-      <form id={id} action={action} class="join">
+      <form
+        id={id}
+        action={action}
+        class="min-w-[245px] flex bg-[#F5F5F7] rounded-lg h-8"
+      >
         <Button
           type="submit"
-          class="join-item btn-square"
+          class="join-item px-2 bg-[#F5F5F7] border-none hover:bg-[#F5F5F7]  rounded-lg max-h-8 min-h-full"
           aria-label="Search"
           for={id}
           tabIndex={-1}
         >
           {loading.value
             ? <span class="loading loading-spinner loading-xs" />
-            : <Icon id="MagnifyingGlass" size={24} strokeWidth={0.01} />}
+            : <Icon id="MagnifyingGlass" size={24} strokeWidth={1} />}
         </Button>
         <input
           ref={searchInputRef}
           id="search-input"
-          class="input input-bordered join-item flex-grow"
+          class="input w-52 input border-none bg-[#F5F5F7] rounded-lg p-0 outline-none focus:outline-none  text-[#111] font-normal text-sm font-[ubunto] h-8"
           name={name}
           defaultValue={query}
           onInput={(e) => {
@@ -109,19 +111,22 @@ function Searchbar({
           aria-controls="search-suggestion"
           autocomplete="off"
         />
-        <Button
+        {
+          /* <Button
           type="button join-item"
           class="btn-ghost btn-square hidden sm:inline-flex"
           onClick={() => displaySearchPopup.value = false}
         >
-          <Icon id="XMark" size={24} strokeWidth={2} />
-        </Button>
+         <Icon id="XMark" size={24} strokeWidth={2} />
+        </Button> */
+        }
       </form>
 
       {notFound
         ? (
           <div class="flex flex-col gap-4 w-full">
-            <span
+            {
+              /* <span
               class="font-medium text-xl text-center"
               role="heading"
               aria-level={3}
@@ -131,12 +136,13 @@ function Searchbar({
             <span class="text-center text-base-300">
               Vamos tentar de outro jeito? Verifique a ortografia ou use um
               termo diferente
-            </span>
+            </span> */
+            }
           </div>
         )
         : (
-          <div class="overflow-y-scroll">
-            <div class="gap-4 grid grid-cols-1 sm:grid-rows-1 sm:grid-cols-[150px_1fr]">
+          <div class="">
+            <div class="">
               <div
                 class={hasTerms ? "flex flex-col gap-6" : "hidden"}
               >

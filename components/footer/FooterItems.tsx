@@ -19,23 +19,46 @@ export default function FooterItems(
         <>
           {/* Tablet and Desktop view */}
           <ul
-            class={`hidden md:flex flex-row gap-6 lg:gap-10 ${
+            class={`hidden md:flex flex-row gap-6 lg:gap-14 ${
               justify && "lg:justify-between"
             }`}
           >
             {sections.map((section) => (
               <li>
-                <div class="flex flex-col gap-2">
-                  <span class="font-medium text-lg">
+                <div class="flex flex-col gap-3">
+                  <span class="font-[Ubunto] text-base text-[#000] font-bold uppercase">
                     {section.label}
                   </span>
-                  <ul class={`flex flex-col gap-2 flex-wrap text-sm`}>
+                  <ul class={`flex flex-col gap-3 flex-wrap text-sm`}>
                     {section.items?.map((item) => (
-                      <li>
-                        <a href={item.href} class="block py-1 link link-hover">
-                          {item.label}
-                        </a>
-                      </li>
+                      item.label.toLowerCase() ==
+                          "seja um franqueado".toLowerCase()
+                        ? (
+                          <li>
+                            <a
+                              href={item.href}
+                              class="text-white font-normal capitalize font-[Ubunto] text-sm bg-black py-2 px-5 rounded-lg flex gap-3 items-center justify-center max-w-[195px]"
+                            >
+                              {item.label}
+                              <Icon
+                                width={24}
+                                height={24}
+                                strokeWidth={1}
+                                id="ArrowLeft"
+                              />
+                            </a>
+                          </li>
+                        )
+                        : (
+                          <li>
+                            <a
+                              href={item.href}
+                              class="text-[#8C8C8C] text-sm font-normal flex "
+                            >
+                              {item.label}
+                            </a>
+                          </li>
+                        )
                     ))}
                   </ul>
                 </div>
@@ -44,26 +67,53 @@ export default function FooterItems(
           </ul>
 
           {/* Mobile view */}
-          <ul class="flex flex-col md:hidden gap-4">
+          <ul class="flex flex-col md:hidden divide-y">
             {sections.map((section) => (
-              <li>
-                <details>
-                  <summary>
-                    <span class="pl-1 py-2">{section.label}</span>
-                  </summary>
-                  <ul
-                    class={`flex flex-col gap-1 pl-5 pt-2`}
-                  >
-                    {section.items?.map((item) => (
-                      <li>
-                        <a href={item.href} class="block py-1 link link-hover">
-                          {item.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              </li>
+              <>
+                <li>
+                  <details class="flex gap-3 flex-col">
+                    <summary class="marker:content-none flex justify-center p-4">
+                      <span class="font-[Ubunto] text-base text-[#000] font-bold uppercase">
+                        {section.label}
+                      </span>
+                    </summary>
+                    <ul
+                      class={`flex flex-col gap-3 items-center pb-8`}
+                    >
+                      {section.items?.map((item) => (
+                        item.label.toLowerCase() ==
+                            "seja um franqueado".toLowerCase()
+                          ? (
+                            <li>
+                              <a
+                                href={item.href}
+                                class="text-white font-normal capitalize font-[Ubunto] text-sm bg-black py-2 px-5 rounded-lg flex gap-3 items-center justify-center max-w-[195px]"
+                              >
+                                {item.label}
+                                <Icon
+                                  width={24}
+                                  height={24}
+                                  strokeWidth={1}
+                                  id="ArrowLeft"
+                                />
+                              </a>
+                            </li>
+                          )
+                          : (
+                            <li>
+                              <a
+                                href={item.href}
+                                class="text-[#8C8C8C] text-sm font-normal flex justify-center"
+                              >
+                                {item.label}
+                              </a>
+                            </li>
+                          )
+                      ))}
+                    </ul>
+                  </details>
+                </li>
+              </>
             ))}
           </ul>
         </>

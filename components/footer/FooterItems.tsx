@@ -37,7 +37,7 @@ export default function FooterItems(
                           <li>
                             <a
                               href={item.href}
-                              class="text-white font-normal capitalize font-[Ubuntu] text-sm bg-black py-2 rounded-lg flex gap-3 items-center justify-center max-w-[195px]"
+                              class="text-white font-normal capitalize font-[Ubuntu] text-sm bg-black py-2 rounded-lg flex gap-3 items-center justify-center px-5 max-w-[220px]"
                             >
                               {item.label}
                               <Icon

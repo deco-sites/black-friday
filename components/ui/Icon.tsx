@@ -45,6 +45,7 @@ export type AvailableIcons =
   | "Hipercard"
   | "Ame"
   | "Cashback"
+  | "ArrowBlack"
   | "ArrowLeft";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {

@@ -1,5 +1,4 @@
 import { Product } from "apps/commerce/types.ts";
-
 import ProductCard, {
   Layout as cardLayout,
 } from "$store/components/product/ProductCard.tsx";
@@ -17,6 +16,10 @@ export interface Props {
 }
 
 function ProductGallery({ products, layout, title}: Props) {
+
+
+
+
   const platform = usePlatform();
   return (
     <div class=" container lg:max-w-[1200px] max-w-[95%] flex flex-col items-center lg:items-start mt-8 lg:mt-16 gap-6 lg:gap-12">
@@ -25,7 +28,7 @@ function ProductGallery({ products, layout, title}: Props) {
           <h3 class={"lg:text-4xl font-semibold uppercase text-black  text-base "}>{title}</h3>
         )
       }
-      <div class="w-full grid grid-cols-2 gap-2 items-center sm:grid-cols-4 sm:gap-10">
+      <div class="w-full grid grid-cols-2 gap-2 items-start sm:grid-cols-4 sm:gap-6">
         {products?.map((product, index) => (
           <ProductCard
             product={product}

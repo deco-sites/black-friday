@@ -146,8 +146,8 @@ export default function BannnerGrid(props: Props) {
               <Source
                 media="(max-width: 767px)"
                 src={srcMobile}
-                width={375}
-                height={240}
+                width={650}
+                height={221}
               />
               <Source
                 media="(min-width: 768px)"

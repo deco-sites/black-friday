@@ -76,6 +76,9 @@ function ProductCard(
   const productGroupID = isVariantOf?.productGroupID;
   const [front, back] = images ?? [];
   const { listPrice, price, installments } = useOffer(offers);
+  let discount;
+  if(listPrice && price) discount = Math.round((price / listPrice)*100)
+  
   const possibilities = useVariantPossibilities(product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});
 
@@ -107,7 +110,7 @@ function ProductCard(
   return (
     <div
       id={id}
-      class={`card card-compact group w-full ${
+      class={`card col-span-1 card-compact group w-full ${
         align === "center" ? "text-center" : "text-start"
       } ${l?.onMouseOver?.showCardShadow ? "lg:hover:card-bordered" : ""}
         ${
@@ -137,6 +140,10 @@ function ProductCard(
         class="relative overflow-hidden"
         style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}
       >
+        {
+          discount &&
+           <span class={"absolute top-0 left-0  rounded-[48px] py-2 px-4 bg-[#595959] text-white text-[10px] lg:text-sm font-black"} >{discount}% OFF</span>
+        }
         {/* Product Images */}
         <a
           href={url && relative(url)}

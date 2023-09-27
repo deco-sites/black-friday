@@ -26,7 +26,7 @@ export default function FooterItems(
             {sections.map((section) => (
               <li>
                 <div class="flex flex-col gap-3">
-                  <span class="font-[Ubuntu] text-base text-[#000] font-bold uppercase">
+                  <span class="text-base text-[#000] font-bold uppercase">
                     {section.label}
                   </span>
                   <ul class={`flex flex-col gap-3 flex-wrap text-sm`}>
@@ -37,7 +37,7 @@ export default function FooterItems(
                           <li>
                             <a
                               href={item.href}
-                              class="text-white font-normal capitalize font-[Ubuntu] text-sm bg-black py-2 rounded-lg flex gap-3 items-center justify-center px-5 max-w-[220px]"
+                              class="text-white font-normal capitalize text-sm bg-black py-2 rounded-lg flex gap-3 items-center justify-center px-5 max-w-[220px]"
                             >
                               {item.label}
                               <Icon
@@ -53,7 +53,7 @@ export default function FooterItems(
                           <li>
                             <a
                               href={item.href}
-                              class="text-[#8C8C8C] text-sm font-normal flex "
+                              class="text-[#8C8C8C] text-sm font-normal flex capitalize"
                             >
                               {item.label}
                             </a>
@@ -73,7 +73,7 @@ export default function FooterItems(
                 <li>
                   <details class="flex gap-3 flex-col group">
                     <summary class="marker:content-none flex justify-center p-4 relative">
-                      <span class="font-[Ubuntu] text-base text-[#000] font-bold uppercase">
+                      <span class="text-base text-[#000] font-bold uppercase">
                         {section.label}
                       </span>
                       <Icon
@@ -94,7 +94,7 @@ export default function FooterItems(
                             <li>
                               <a
                                 href={item.href}
-                                class="text-white font-normal capitalize font-[Ubuntu] text-sm bg-black py-2 rounded-lg px-5 flex gap-3 items-center justify-center max-w-[220px]"
+                                class="text-white font-normal capitalize text-sm bg-black py-2 rounded-lg px-5 flex gap-3 items-center justify-center max-w-[220px]"
                               >
                                 {item.label}
                                 <Icon
@@ -110,7 +110,7 @@ export default function FooterItems(
                             <li>
                               <a
                                 href={item.href}
-                                class="text-[#8C8C8C] text-sm font-normal flex justify-center"
+                                class="text-[#8C8C8C] text-sm font-normal flex justify-center capitalize"
                               >
                                 {item.label}
                               </a>

@@ -278,7 +278,7 @@ function Footer({
             </div>
 
             <div class="flex justify-center mt-6 px-4 pb-5">
-              <p class="text-center text-[10px] font-[Ubuntu] uppercase font-medium text-[#9A9A9A] w-[550px]">
+              <p class="text-center text-[10px] uppercase font-medium text-[#9A9A9A] w-[550px]">
                 Wicomm COMERCIO DE ARTIGOS DE COURO LTDA CNPJ:
                 12.150.996/0002-81 I.E: 86.863.120 RUA FONSECA TELES,54 SL 201 E
                 GALPÃO SÃO CRISTOVÃO - RIO DE JANEIRO - RJ CEP: 20940-200

@@ -21,7 +21,7 @@ export default function PaymentMethods(
       {content && content.items && content.items.length > 0 && (
         <div class="flex flex-col gap-4 px-11">
           {content.title && (
-            <h3 class="hidden md:flex text-[#000] font-[Ubuntu] font-bold uppercase text-base">
+            <h3 class="hidden md:flex text-[#000] font-bold uppercase text-base">
               {content.title}
             </h3>
           )}

@@ -11,6 +11,19 @@ function GlobalTags() {
 
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
+      <style
+        type="text/css"
+        dangerouslySetInnerHTML={{
+          __html: `@font-face {
+            font-family: "Overpass";
+            src: url("${
+            asset("/fonts/Overpass/Overpass-Regular.ttf")
+          }") format("truetype");
+                font-style: normal;
+                font-weight: normal;                
+          }`,
+        }}
+      />
     </Head>
   );
 }

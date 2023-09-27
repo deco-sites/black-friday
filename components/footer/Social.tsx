@@ -22,7 +22,7 @@ export default function Social(
       {content && content.items && content.items.length > 0 && (
         <div class="flex flex-col gap-4">
           {content.title && (
-            <h3 class="hidden md:flex mt-6 text-[#000] font-[Ubuntu] font-bold uppercase text-base">
+            <h3 class="hidden md:flex mt-6 text-[#000] font-bold uppercase text-base">
               {content.title}
             </h3>
           )}

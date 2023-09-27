@@ -71,11 +71,18 @@ export default function FooterItems(
             {sections.map((section) => (
               <>
                 <li>
-                  <details class="flex gap-3 flex-col">
-                    <summary class="marker:content-none flex justify-center p-4">
+                  <details class="flex gap-3 flex-col group">
+                    <summary class="marker:content-none flex justify-center p-4 relative">
                       <span class="font-[Ubuntu] text-base text-[#000] font-bold uppercase">
                         {section.label}
                       </span>
+                      <Icon
+                        width={24}
+                        height={24}
+                        strokeWidth={1}
+                        id="ArrowBlack"
+                        class="group-open:rotate-[180deg] absolute right-5"
+                      />
                     </summary>
                     <ul
                       class={`flex flex-col gap-3 items-center pb-8`}

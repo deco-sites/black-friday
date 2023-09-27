@@ -91,7 +91,7 @@ function Searchbar({
         <input
           ref={searchInputRef}
           id="search-input"
-          class="input w-52 input border-none bg-[#F5F5F7] rounded-lg p-0 outline-none focus:outline-none  text-[#111] font-normal text-sm font-[Ubuntu] h-8"
+          class="input w-52 border-none bg-[#F5F5F7] rounded-lg p-0 outline-none focus:outline-none text-[#111] font-normal text-sm font-[Ubuntu] h-8 placeholder:font-sans"
           name={name}
           defaultValue={query}
           onInput={(e) => {

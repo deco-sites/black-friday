@@ -37,7 +37,16 @@ export interface SocialItem {
 }
 
 export interface PaymentItem {
-  label: "Diners" | "Elo" | "Mastercard" | "Pix" | "Visa";
+  label:
+    | "Diners"
+    | "Elo"
+    | "Mastercard"
+    | "Pix"
+    | "Visa"
+    | "Amex"
+    | "Hipercard"
+    | "Ame"
+    | "Cashback";
 }
 
 export interface MobileApps {
@@ -203,15 +212,15 @@ function Footer({
   },
 }: Props) {
   const _logo = layout?.hide?.logo ? <></> : <Logo logo={logo} />;
-  const _newsletter = layout?.hide?.newsletter ? <></> : (
-    <Newsletter
-      content={newsletter}
-      layout={{
-        tiled: layout?.variation == "Variation 4" ||
-          layout?.variation == "Variation 5",
-      }}
-    />
-  );
+  // const _newsletter = layout?.hide?.newsletter ? <></> : (
+  //   <Newsletter
+  //     content={newsletter}
+  //     layout={{
+  //       tiled: layout?.variation == "Variation 4" ||
+  //         layout?.variation == "Variation 5",
+  //     }}
+  //   />
+  // );
   const _sectionLinks = layout?.hide?.sectionInfo ? <></> : (
     <FooterItems
       sections={sections}
@@ -250,16 +259,30 @@ function Footer({
             <div>
               {_logo}
             </div>
-            <div class="flex flex-col md:flex-row md:justify-between lg:grid lg:grid-cols-5">
+            <div class="flex flex-col md:flex-row md:justify-between lg:grid lg:grid-cols-5 md:pb-14">
               <div class="md:hidden">{_sectionInfoFooter} {_social}</div>
               <div class="col-span-3">{_sectionLinks}</div>
               <div class="hidden md:flex md:col-span-1">
                 {_sectionInfoFooter}
               </div>
-              <div class="md:col-span-1 md:mx-auto">{_apps}</div>
+              <div class="md:col-span-1 md:mx-auto">
+                {_apps} <div class="hidden md:flex">{_social}</div>
+              </div>
             </div>
-            <div class="flex flex-col">
+            <div class="hidden md:flex">
+              <Divider />
+            </div>
+
+            <div class="flex flex-col md:pt-5">
               {_payments}
+            </div>
+
+            <div class="flex justify-center mt-6 px-4 pb-5">
+              <p class="text-center text-[10px] font-[Ubuntu] uppercase font-medium text-[#9A9A9A] w-[550px]">
+                Wicomm COMERCIO DE ARTIGOS DE COURO LTDA CNPJ:
+                12.150.996/0002-81 I.E: 86.863.120 RUA FONSECA TELES,54 SL 201 E
+                GALPÃO SÃO CRISTOVÃO - RIO DE JANEIRO - RJ CEP: 20940-200
+              </p>
             </div>
           </div>
         )}
@@ -274,7 +297,7 @@ function Footer({
                 {_region}
               </div>
               <div class="flex flex-col gap-10 lg:gap-20 lg:w-1/2 lg:pr-10">
-                {_newsletter}
+                {/* {_newsletter} */}
                 {_sectionLinks}
               </div>
             </div>
@@ -290,7 +313,7 @@ function Footer({
             {_logo}
             <div class="flex flex-col lg:flex-row gap-14">
               <div class="flex flex-col md:flex-row lg:flex-col md:justify-between lg:justify-normal gap-10 lg:w-2/5">
-                {_newsletter}
+                {/* {_newsletter} */}
                 <div class="flex flex-col gap-10">
                   {_payments}
                   {_apps}
@@ -313,8 +336,8 @@ function Footer({
         )}
         {layout?.variation == "Variation 4" && (
           <div class="flex flex-col gap-10">
-            {_newsletter}
-            {layout?.hide?.newsletter ? <></> : <Divider />}
+            {/* {_newsletter} */}
+            {/* {layout?.hide?.newsletter ? <></> : <Divider />} */}
             <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:justify-between">
               {_sectionLinks}
               <div class="flex flex-col md:flex-row lg:flex-col gap-10 lg:gap-10 lg:w-2/5 lg:pl-10">
@@ -341,8 +364,8 @@ function Footer({
         )}
         {layout?.variation == "Variation 5" && (
           <div class="flex flex-col gap-10">
-            {_newsletter}
-            {layout?.hide?.newsletter ? <></> : <Divider />}
+            {/* {_newsletter} */}
+            {/* {layout?.hide?.newsletter ? <></> : <Divider />} */}
             {_logo}
             <div class="flex flex-col md:flex-row gap-10 lg:gap-20 md:justify-between">
               {_sectionLinks}

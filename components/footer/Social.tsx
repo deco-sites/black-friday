@@ -21,12 +21,16 @@ export default function Social(
     <>
       {content && content.items && content.items.length > 0 && (
         <div class="flex flex-col gap-4">
-          {content.title && <h3 class="text-lg">{content.title}</h3>}
+          {content.title && (
+            <h3 class="hidden md:flex mt-6 text-[#000] font-[Ubuntu] font-bold uppercase text-base">
+              {content.title}
+            </h3>
+          )}
           <ul
             class={`flex gap-4 ${
               vertical
                 ? "lg:flex-col lg:items-start"
-                : "flex-wrap items-center justify-center"
+                : "flex-wrap items-center justify-center md:items-start md:justify-start"
             }`}
           >
             {content.items.map((item) => {

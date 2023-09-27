@@ -1,5 +1,5 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
-
+import Divider from "$store/components/footer/Divider.tsx";
 export type Item = {
   label: string;
   href: string;
@@ -26,7 +26,7 @@ export default function FooterItems(
             {sections.map((section) => (
               <li>
                 <div class="flex flex-col gap-3">
-                  <span class="font-[Ubunto] text-base text-[#000] font-bold uppercase">
+                  <span class="font-[Ubuntu] text-base text-[#000] font-bold uppercase">
                     {section.label}
                   </span>
                   <ul class={`flex flex-col gap-3 flex-wrap text-sm`}>
@@ -37,7 +37,7 @@ export default function FooterItems(
                           <li>
                             <a
                               href={item.href}
-                              class="text-white font-normal capitalize font-[Ubunto] text-sm bg-black py-2 px-5 rounded-lg flex gap-3 items-center justify-center max-w-[195px]"
+                              class="text-white font-normal capitalize font-[Ubuntu] text-sm bg-black py-2 rounded-lg flex gap-3 items-center justify-center max-w-[195px]"
                             >
                               {item.label}
                               <Icon
@@ -67,13 +67,13 @@ export default function FooterItems(
           </ul>
 
           {/* Mobile view */}
-          <ul class="flex flex-col md:hidden divide-y">
+          <ul class="flex flex-col md:hidden ">
             {sections.map((section) => (
               <>
                 <li>
                   <details class="flex gap-3 flex-col">
                     <summary class="marker:content-none flex justify-center p-4">
-                      <span class="font-[Ubunto] text-base text-[#000] font-bold uppercase">
+                      <span class="font-[Ubuntu] text-base text-[#000] font-bold uppercase">
                         {section.label}
                       </span>
                     </summary>
@@ -87,7 +87,7 @@ export default function FooterItems(
                             <li>
                               <a
                                 href={item.href}
-                                class="text-white font-normal capitalize font-[Ubunto] text-sm bg-black py-2 px-5 rounded-lg flex gap-3 items-center justify-center max-w-[195px]"
+                                class="text-white font-normal capitalize font-[Ubuntu] text-sm bg-black py-2 rounded-lg px-5 flex gap-3 items-center justify-center max-w-[220px]"
                               >
                                 {item.label}
                                 <Icon
@@ -113,6 +113,7 @@ export default function FooterItems(
                     </ul>
                   </details>
                 </li>
+                <Divider />
               </>
             ))}
           </ul>

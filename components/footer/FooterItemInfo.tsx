@@ -22,14 +22,14 @@ export default function FooterItemInfo(
       {sectionsInfo.length > 0 && (
         <>
           <ul
-            class={`flex flex-col gap-6 lg:gap-10 items-center justify-center ${
+            class={`flex flex-col gap-6 lg:gap-7 items-center justify-center md:justify-start md:items-start ${
               justify && "lg:justify-between"
             }`}
           >
             {sectionsInfo.map((section) => (
               <li>
                 <div class="flex flex-col gap-2">
-                  <span class="font-[Ubunto] text-base text-[#000] font-bold uppercase text-center">
+                  <span class="font-[Ubuntu] text-base text-[#000] font-bold uppercase text-center md:text-start">
                     {section.label}
                   </span>
                   <ul class={`flex flex-col gap-2 flex-wrap text-sm`}>
@@ -37,13 +37,13 @@ export default function FooterItemInfo(
                       section.label.toLocaleLowerCase() ==
                           "Encontre uma loja".toLocaleLowerCase()
                         ? (
-                          <li class="flex justify-center flex-col items-center pb-10">
-                            <p class="text-[#BFBFBF] font-bold uppercase font-[Ubunto] text-base">
+                          <li class="flex justify-center flex-col items-center pb-10 md:items-start md:justify-start">
+                            <p class="text-[#BFBFBF] font-bold uppercase font-[Ubuntu] text-base">
                               {item?.title}
                             </p>
                             <a
                               href={item.href}
-                              class="text-white font-normal capitalize font-[Ubunto] text-sm bg-black py-2 px-5 rounded-lg flex gap-3 items-center justify-center"
+                              class="text-white font-normal capitalize font-[Ubuntu] text-sm bg-black py-2 px-5 rounded-lg flex gap-3 items-center justify-center"
                             >
                               {item.label}
                               <Icon
@@ -56,13 +56,13 @@ export default function FooterItemInfo(
                           </li>
                         )
                         : (
-                          <li class="flex justify-center flex-col items-center">
-                            <p class="text-[#BFBFBF] font-bold uppercase font-[Ubunto] text-base">
+                          <li class="flex justify-center flex-col items-center md:items-start md:justify-start">
+                            <p class="text-[#BFBFBF] font-bold uppercase font-[Ubuntu] text-base">
                               {item.title}
                             </p>
                             <a
                               href={item.href}
-                              class="text-black font-bold uppercase font-[Ubunto] text-base"
+                              class="text-black font-bold font-[Ubuntu] text-base"
                             >
                               {item.label}
                             </a>

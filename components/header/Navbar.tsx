@@ -61,7 +61,7 @@ function Navbar({ items, searchbar, logo }: {
         <div class="flex flex-row justify-between w-full items-center pt-8 pb-4">
           <a
             href="/"
-            class="w-44 text-xs text-[#595959] font-bold font-[Ubuntu]"
+            class="w-44 text-xs text-[#595959] font-bold font-sans"
           >
             SEJA UM FRANQUEADO
           </a>

@@ -68,8 +68,11 @@ export default function Newsletter(props: Props) {
 
       const email =
         (e.currentTarget.elements.namedItem("email") as RadioNodeList)?.value;
+        const name =
+        (e.currentTarget.elements.namedItem("name") as RadioNodeList)?.value;
 
-      await Runtime.vtex.actions.newsletter.subscribe({ email });
+        
+      await Runtime.vtex.actions.newsletter.subscribe({ email,name });
     } finally {
       loading.value = false;
     }

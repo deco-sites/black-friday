@@ -77,7 +77,7 @@ function ProductCard(
   const [front, back] = images ?? [];
   const { listPrice, price, installments } = useOffer(offers);
   let discount;
-  if(listPrice && price) discount = Math.round((price / listPrice)*100)
+  if(listPrice && price) discount = Math.floor((price / listPrice)*100)
   
   const possibilities = useVariantPossibilities(product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});

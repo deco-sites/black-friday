@@ -38,7 +38,6 @@ export interface Layout {
 }
 
 interface Props {
-  shopUrl: string;
   product: Product;
   /** Preload card image */
   preload?: boolean;

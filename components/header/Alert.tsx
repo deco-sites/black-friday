@@ -23,7 +23,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
             <span class="text-sm text-secondary-content flex justify-center items-center w-screen h-[36px] text-white  gap-1 ">
               <Icon
                 id="Promotion"
-                size={24}
+                size={27}
                 strokeWidth={1}
                 fill="none"
               />{" "}

@@ -101,7 +101,7 @@ function ProductCard(
     <a
       href={url && relative(url)}
       aria-label="view product"
-      class="btn btn-block"
+      class="btn btn-block text-base-100"
     >
       {l?.basics?.ctaText || "Ver produto"}
     </a>
@@ -142,7 +142,7 @@ function ProductCard(
       >
         {
           discount &&
-           <span class={"absolute top-0 left-0  rounded-[48px] py-2 px-4 bg-[#595959] text-white text-[10px] lg:text-sm font-black"} >{discount}% OFF</span>
+           <span class={"absolute top-0 left-0  rounded-[48px] py-2 px-4 bg-secondary text-white text-[10px] lg:text-sm font-black"} >{discount}% OFF</span>
         }
         {/* Product Images */}
         <a
@@ -220,7 +220,7 @@ function ProductCard(
             <div class="flex flex-col gap-0">
               {l?.hide?.productName ? "" : (
                 <h2
-                  class=" text-base lg:text-xl text-black"
+                  class=" text-base lg:text-xl text-base-content"
                   dangerouslySetInnerHTML={{ __html: name ?? "" }}
                 />
               )}
@@ -242,7 +242,7 @@ function ProductCard(
               >
                 {formatPrice(listPrice, offers?.priceCurrency)}
               </div>
-              <div class="text-black text-base lg:text-2xl font-bold">
+              <div class="text-primary text-base lg:text-2xl font-bold">
                 {formatPrice(price, offers?.priceCurrency)}
               </div>
             </div>

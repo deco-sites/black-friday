@@ -392,12 +392,14 @@ export function Preview(props: Props) {
               <button class="btn btn-sm">A</button>{" "}
               <button class="btn btn-sm btn-primary">A</button>{" "}
               <button class="btn btn-sm btn-secondary">A</button>{" "}
+              <button class="btn btn-sm btn-tertiary">A</button>{" "}
               <button class="btn btn-sm btn-accent">A</button>
               {" "}
             </div>
             <div class="flex flex-wrap gap-1">
               <button class="btn btn-sm btn-outline">A</button>{" "}
               <button class="btn btn-sm btn-primary btn-outline">A</button>{" "}
+              <button class="btn btn-sm btn-tertiary btn-outline">A</button>{" "}
               <button class="btn btn-sm btn-secondary btn-outline">A</button>
               {" "}
               <button class="btn btn-sm btn-accent btn-outline">A</button>
@@ -409,6 +411,7 @@ export function Preview(props: Props) {
             <span class="badge">Base</span>{" "}
             <span class="badge badge-primary">Primary</span>{" "}
             <span class="badge badge-secondary">Secondary</span>{" "}
+            <span class="badge badge-tertiary">Secondary</span>{" "}
             <span class="badge badge-accent">Tertiary</span>
             {" "}
           </div>{" "}
@@ -416,6 +419,7 @@ export function Preview(props: Props) {
             <div class="text-base">Content</div>
             <div class="text-base text-primary">Primary</div>
             <div class="text-base text-secondary">Secondary</div>
+            <div class="text-base text-tertiary">Secondary</div>
             <div class="text-base text-accent">Tertiary</div>
           </div>
           {" "}
@@ -429,6 +433,7 @@ export function Preview(props: Props) {
               <button class="btn btn-sm">A</button>{" "}
               <button class="btn btn-sm btn-primary">A</button>{" "}
               <button class="btn btn-sm btn-secondary">A</button>{" "}
+              <button class="btn btn-sm btn-tertiary">A</button>{" "}
               <button class="btn btn-sm btn-accent">A</button>
               {" "}
             </div>

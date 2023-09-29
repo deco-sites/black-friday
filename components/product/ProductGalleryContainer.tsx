@@ -18,7 +18,7 @@ export default function ProductGalleryContainer({ products, layout, title, showM
         <div class=" container lg:max-w-[1200px] max-w-[95%] flex flex-col items-center lg:items-start mt-8 lg:mt-16 gap-6 lg:gap-12">
         {
           title &&  (
-            <h3 class={"lg:text-4xl font-semibold uppercase text-black  text-base "}>{title}</h3>
+            <h3 class={"lg:text-4xl font-semibold uppercase text-primary-content text-base"}>{title}</h3>
           )
         }
         <ProductHomeGallery

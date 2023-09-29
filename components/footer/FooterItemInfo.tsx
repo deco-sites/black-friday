@@ -62,7 +62,7 @@ export default function FooterItemInfo(
                             </p>
                             <a
                               href={item.href}
-                              class="text-black font-bold  text-base"
+                              class="text-primary-content font-bold  text-base"
                             >
                               {item.label}
                             </a>

@@ -118,7 +118,7 @@ function CampaignTimer({
     <>
       <div class=" container flex justify-center flex-col items-center lg:my-16 mt-6 mb-8 lg:max-w-[1200px] rounded-lg text-accent-content">
         {title && (
-          <div class="text-2xl text-center justify-center lg:text-3xl font-bold lg:mb-10 mb-8   flex lg:max-w-lg text-black"  dangerouslySetInnerHTML={{ __html: title }}/> 
+          <div class="text-2xl text-center justify-center lg:text-3xl font-bold lg:mb-10 mb-8 flex lg:max-w-lg text-base-content" dangerouslySetInnerHTML={{ __html: title }}/> 
         )}
         <div class="container bg-base-200 max-w-[90%] md:max-w-full mx-auto flex flex-col rounded-lg  lg:items-center lg:justify-center gap-3 py-4 px-6  ">
           {layout?.textPosition !== "After counter" &&

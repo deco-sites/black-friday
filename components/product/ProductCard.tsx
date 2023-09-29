@@ -8,6 +8,7 @@ import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
+import AddToCartButtonVTEX from "$store/islands/AddToCartButton/vtex.tsx";
 
 export interface Layout {
   basics?: {
@@ -51,7 +52,7 @@ interface Props {
 
 const relative = (url: string) => {
   const link = new URL(url);
-  
+
   return `${link.pathname}${link.search}`;
 };
 
@@ -69,16 +70,15 @@ function ProductCard(
     offers,
     isVariantOf,
   } = product;
- 
-  
+
   const description = product.description || isVariantOf?.description;
   const id = `product-card-${productID}`;
   const productGroupID = isVariantOf?.productGroupID;
   const [front, back] = images ?? [];
-  const { listPrice, price, installments } = useOffer(offers);
+  const { listPrice, price, installments, seller = "1" } = useOffer(offers);
   let discount;
-  if(listPrice && price) discount = Math.floor((price / listPrice)*100)
-  
+  if (listPrice && price) discount = Math.floor((price / listPrice) * 100);
+
   const possibilities = useVariantPossibilities(product);
   const variants = Object.entries(Object.values(possibilities)[0] ?? {});
 
@@ -140,10 +140,14 @@ function ProductCard(
         class="relative overflow-hidden"
         style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}
       >
-        {
-          discount &&
-           <span class={"absolute top-0 left-0  rounded-[48px] py-2 px-4 bg-secondary text-white text-[10px] lg:text-sm font-black"} >{discount}% OFF</span>
-        }
+        {discount &&
+          (
+            <span
+              class={"absolute top-0 left-0  rounded-[48px] py-2 px-4 bg-secondary text-white text-[10px] lg:text-sm font-black"}
+            >
+              {discount}% OFF
+            </span>
+          )}
         {/* Product Images */}
         <a
           href={url && relative(url)}
@@ -282,6 +286,19 @@ function ProductCard(
             </div>
           )
           : ""}
+
+        {platform === "vtex" && (
+          <>
+            <AddToCartButtonVTEX
+              name={name || ""}
+              productID={productID}
+              productGroupID={productGroupID || ""}
+              price={price || 0}
+              discount={discount || 0}
+              seller={seller}
+            />
+          </>
+        )}
       </div>
     </div>
   );
